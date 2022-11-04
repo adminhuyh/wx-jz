@@ -70,6 +70,9 @@ public class XcxServiceImpl implements XcxUserService {
         UserDto userDto = new UserDto();
         BeanUtils.copyProperties(user,userDto);
         userDto.setLifeImageList(covertImageToImagelist(user.getLifeImage()));
+        if (!CollectionUtils.isEmpty(userDto.getLifeImageList())) {
+            userDto.setLifeImage(userDto.getLifeImageList().get(0));
+        }
         return userDto;
     }
 
@@ -88,7 +91,7 @@ public class XcxServiceImpl implements XcxUserService {
         Integer totalPageNum = 0;
         Page<UserDto> topicVoPage = new Page<>(pageNum, pageSize);
         topicVoPage.setPageTotal(totalPageNum);
-        if(Objects.isNull(userDto) || Objects.isNull(userDto.getId())){
+        if(Objects.isNull(userDto)){
             return topicVoPage;
         }
         User user = new User();

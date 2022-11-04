@@ -2,6 +2,7 @@ package com.tencent.wxcloudrun.controller.request;
 
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -24,7 +25,7 @@ public class PageUserParam extends RequsetUserParam{
      */
     private  Long phoneNumber;
 
-    private  String birthDay;
+    private LocalDate birthDay;
 
     private  String weight;
 
