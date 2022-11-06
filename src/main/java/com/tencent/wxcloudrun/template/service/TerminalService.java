@@ -122,7 +122,6 @@ public class TerminalService {
     @Transactional(rollbackFor=Exception.class)
     public Map<String,Object> loginAdminByUserName(Map<String, String[]> map) throws Exception {
         Map<String, Object> result = new HashMap<String, Object>();
-
         return result;
 
 //		Map<String, Object> result = new HashMap<String, Object>();

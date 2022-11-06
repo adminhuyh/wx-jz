@@ -53,13 +53,19 @@ public class XcxUserController {
      */
     @PostMapping(value = "/addUser")
     RestResultData addUserInfo(@RequestBody RequsetUserParam userParam) {
-        if(Objects.isNull(userParam.getPhoneNumber()) || "".equals(userParam.getPhoneNumber())){
-            return RestResultData.failed("手机号码不能为空");
-        }
-        UserDto userDto = new UserDto();
-        BeanUtils.copyProperties(userParam,userDto);
-        boolean b = xcxService.addUser(userDto);
-        return RestResultData.successed(b);
+        return RestResultData.successed(true);
+//
+//        System.out.println("userParam="+userParam);
+//        return RestResultData.successed(true);
+//        if(Objects.isNull(userParam.getPhoneNumber()) || "".equals(userParam.getPhoneNumber())){
+//            return RestResultData.failed("手机号码不能为空");
+//        }
+//        splitAddress(userParam);
+//        UserDto userDto = new UserDto();
+//        BeanUtils.copyProperties(userParam,userDto);
+//
+//        boolean b = xcxService.addUser(userDto);
+//        return RestResultData.successed(b);
     }
 
     /**
@@ -106,6 +112,34 @@ public class XcxUserController {
     }
 
 
+
+    private RequsetUserParam splitAddress(RequsetUserParam userParam){
+        List<String> workAddress = userParam.getWorkAddress();
+        if (!CollectionUtils.isEmpty(workAddress)) {
+             if (workAddress.size()>0) {
+                 userParam.setWorkProvinceName(workAddress.get(0));
+             }
+             if (workAddress.size()>1){
+                 userParam.setWorkCityName(workAddress.get(1));
+             }
+             if (workAddress.size()>2){
+                 userParam.setWorkAreaName(workAddress.get(2));
+             }
+        }
+        List<String> nativeAddress = userParam.getNativeAddress();
+        if (!CollectionUtils.isEmpty(nativeAddress)) {
+            if (nativeAddress.size()>0) {
+                userParam.setNativeProvinceName(nativeAddress.get(0));
+            }
+            if (nativeAddress.size()>1){
+                userParam.setNativeCityName(nativeAddress.get(1));
+            }
+            if (nativeAddress.size()>2){
+                userParam.setNativeAreaName(nativeAddress.get(2));
+            }
+        }
+        return userParam;
+    }
 
 
 

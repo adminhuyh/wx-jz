@@ -62,4 +62,10 @@ public class PageUserParam extends RequsetUserParam{
 
     private Integer pageNum;
     private Integer pageSize;
+
+
+    public PageUserParam(){
+        this.pageNum=1;
+        this.pageSize=5;
+    }
 }

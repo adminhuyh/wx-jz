@@ -30,7 +30,7 @@ public class RestResultData<T> implements Serializable {
     private Object errorCode;
     private String errorMessage = "";
 
-    private T body;
+    private T content;
 
     /**
      * 是否正常
@@ -60,14 +60,14 @@ public class RestResultData<T> implements Serializable {
 
     public static <T> RestResultData<T> successed(T data) {
         RestResultData<T> tchResultData = new RestResultData<>();
-        tchResultData.setBody(data);
+        tchResultData.setContent(data);
         return tchResultData;
     }
 
     public static <T> RestResultData<T> successed(String mesg, T data) {
         RestResultData<T> tchResultData = new RestResultData<>();
         tchResultData.setErrorMessage(mesg);
-        tchResultData.setBody(data);
+        tchResultData.setContent(data);
         return tchResultData;
     }
 
@@ -106,7 +106,7 @@ public class RestResultData<T> implements Serializable {
         tchResultData.setErrorCode(code);
         tchResultData.setErrorMessage(mesg);
         tchResultData.setStatus(STATUS_ERROR);
-        tchResultData.setBody(data);
+        tchResultData.setContent(data);
         return tchResultData;
     }
 

@@ -2,11 +2,12 @@ package com.tencent.wxcloudrun.controller.request;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 @Data
-public class RequsetUserParam {
+public class RequsetUserParam implements Serializable {
 
     private Long id;
 
@@ -37,6 +38,10 @@ public class RequsetUserParam {
 
     private  String income;
 
+    private  List<String> nativeAddress;
+
+    private  List<String> workAddress;
+
     private  String nativeProvinceName;
 
     private  String nativeCityName;
@@ -60,4 +65,8 @@ public class RequsetUserParam {
 
 
     private List<String> lifeImageList;
+
+    public RequsetUserParam(){
+        this.nickName="";
+    }
 }
