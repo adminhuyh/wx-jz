@@ -142,10 +142,10 @@
         limit #{pageNum},#{pageSize}
     </select>
 
-    <select id="countUserPageList" resultMap="userMapper" parameterType="com.tencent.wxcloudrun.model.User">
+    <select id="countUserPageList" resultType="java.lang.Integer" parameterType="com.tencent.wxcloudrun.model.User">
         SELECT count(id)
         FROM register_user
-        WHERE 1 =1
+        WHERE 1 = 1
         <if test='user.userName            != null'> and `user_name` = #{user.userName}</if>
         <if test='user.nickName != null'> and `nick_name`  = #{user.nickName}</if>
         <if test='user.sex != null'> and `sex`  = #{user.sex}</if>

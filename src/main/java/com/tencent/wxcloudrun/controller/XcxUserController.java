@@ -53,19 +53,18 @@ public class XcxUserController {
      */
     @PostMapping(value = "/addUser")
     RestResultData addUserInfo(@RequestBody RequsetUserParam userParam) {
-        return RestResultData.successed(true);
-//
+        //return RestResultData.successed(true);
 //        System.out.println("userParam="+userParam);
 //        return RestResultData.successed(true);
-//        if(Objects.isNull(userParam.getPhoneNumber()) || "".equals(userParam.getPhoneNumber())){
-//            return RestResultData.failed("手机号码不能为空");
-//        }
-//        splitAddress(userParam);
-//        UserDto userDto = new UserDto();
-//        BeanUtils.copyProperties(userParam,userDto);
-//
-//        boolean b = xcxService.addUser(userDto);
-//        return RestResultData.successed(b);
+        if(Objects.isNull(userParam.getPhoneNumber()) || "".equals(userParam.getPhoneNumber())){
+            return RestResultData.failed("手机号码不能为空");
+        }
+        splitAddress(userParam);
+        UserDto userDto = new UserDto();
+        BeanUtils.copyProperties(userParam,userDto);
+
+        boolean b = xcxService.addUser(userDto);
+        return RestResultData.successed(b);
     }
 
     /**
@@ -105,6 +104,9 @@ public class XcxUserController {
         list.stream().forEach(k -> {
             UserVo userVo = new UserVo();
             BeanUtils.copyProperties(k,userVo);
+            if (!CollectionUtils.isEmpty(userVo.getLifeImageList())) {
+                userVo.setMainImage(userVo.getLifeImageList().get(0));
+            }
             userVoList.add(userVo);
         });
         userDtoPage.setList(userVoList);

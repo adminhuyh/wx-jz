@@ -10,6 +10,9 @@ import java.util.List;
 @Data
 public class UserVo implements Serializable {
 
+
+    private Long id;
+
     private  String userName;
 
     private  String nickName;
@@ -57,6 +60,8 @@ public class UserVo implements Serializable {
     private  String aboutYou;
 
     private  String aboutOther;
+
+    private  String mainImage;
 
     private  String lifeImage;
 

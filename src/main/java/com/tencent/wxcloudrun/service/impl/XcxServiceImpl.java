@@ -88,16 +88,15 @@ public class XcxServiceImpl implements XcxUserService {
     public Page<UserDto> pageUserList(Integer pageNum, Integer pageSize, UserDto userDto) {
         pageNum = pageNum == null || pageNum == 0 ? 1 : pageNum;
         pageSize = pageSize == null || pageSize == 0 ? 10 : pageSize;
-        Integer totalPageNum = 0;
         Page<UserDto> topicVoPage = new Page<>(pageNum, pageSize);
-        topicVoPage.setPageTotal(totalPageNum);
         if(Objects.isNull(userDto)){
             return topicVoPage;
         }
         User user = new User();
         BeanUtils.copyProperties(userDto,user);
-        totalPageNum  = userMapper.countUserPageList(pageNum, pageSize, user);
+        Integer totalPageNum  = userMapper.countUserPageList(pageNum, pageSize, user);
         List<User> userPageList = userMapper.getUserPageList(pageNum, pageSize, user);
+        topicVoPage.setItemTotal(totalPageNum);
         topicVoPage.setList(covertUserList(userPageList));
         return topicVoPage;
     }
