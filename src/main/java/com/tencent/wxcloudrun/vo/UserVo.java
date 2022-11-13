@@ -13,6 +13,8 @@ public class UserVo implements Serializable {
 
     private Long id;
 
+    private String userNo;
+
     private  String userName;
 
     private  String nickName;

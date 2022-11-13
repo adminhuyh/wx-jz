@@ -6,6 +6,7 @@
         <id property="id" column="id"/>
         <result property="createdAt" column="createdAt" javaType="java.time.LocalDateTime" />
         <result property="updatedAt" column="updatedAt" javaType="java.time.LocalDateTime"  />
+        <result property="userNo" column="user_no" javaType="java.lang.String"  />
         <result property="userName" column="user_name" javaType="java.lang.String"  />
         <result property="nickName" column="nick_name" javaType="java.lang.String"  />
         <result property="sex" column="sex" javaType="java.lang.Integer"  />
@@ -37,6 +38,7 @@
         (`user_name`,
          `createdAt`,
          `updatedAt`,
+         `user_no`,
          `nick_name` ,
          `sex` ,
          `wx_number` ,
@@ -60,6 +62,7 @@
             #{userName},
             #{createdAt},
             #{updatedAt},
+            #{userNo},
             #{nickName},
             #{sex},
             #{wxNumber},

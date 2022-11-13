@@ -15,9 +15,9 @@ import java.io.IOException;
 public class UploadController {
 
 
-    private static final String imagePath = "static\\images\\";
+    private static final String imagePath = "static//images/";
 
-    private static final String serverName = "D:\\wx-project\\wx-jz\\src\\main\\resources\\";
+    private static final String serverName = "D:/wx-project/wx-jz/src/main/resources/";
 
 
 

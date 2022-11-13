@@ -6,6 +6,7 @@ import com.tencent.wxcloudrun.dao.UserMapper;
 import com.tencent.wxcloudrun.model.User;
 import com.tencent.wxcloudrun.service.XcxUserService;
 import com.tencent.wxcloudrun.service.dto.UserDto;
+import com.tencent.wxcloudrun.util.NumberUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,7 @@ public class XcxServiceImpl implements XcxUserService {
         User user = new User();
         BeanUtils.copyProperties(userDto,user);
         user.setLifeImage(covertImageListToString(userDto.getLifeImageList()));
+        user.setUserNo(NumberUtil.getNumber());
         Integer integer = userMapper.addUser(user);
         if(integer.equals(1)){
             return true;
