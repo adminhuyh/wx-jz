@@ -8,3 +8,5 @@
 /target/
 /.idea/inspectionProfiles/
 /target/
+/target/
+/${project.build.directory}/
