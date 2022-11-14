@@ -18,6 +18,8 @@ public class User implements Serializable {
 
     private LocalDateTime updatedAt;
 
+    private String userNo;
+
 
     private  String userName;
 

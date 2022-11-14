@@ -1,16 +1,15 @@
 server:
   port: 8080
 
-
+#    url: jdbc:mysql://sh-cynosdbmysql-grp-a7shddcm.sql.tencentcdb.com:23974/springboot_demo
+#    username: root
+#    password: 890qweASD
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://sh-cynosdbmysql-grp-a7shddcm.sql.tencentcdb.com:23974/springboot_demo
+    url: jdbc:mysql://127.0.0.1:3306/springboot-mini?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useSSL=true&characterEncoding=UTF-8
     username: root
-    password: 890qweASD
-  #    url: jdbc:mysql://${MYSQL_ADDRESS}/${MYSQL_DATABASE:springboot_demo}
-  #    username: ${MYSQL_USERNAME}
-  #    password: ${MySQL_PASSWORD}
+    password: root
   mvc:
     view:
       suffix: .html
