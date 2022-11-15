@@ -10,3 +10,4 @@
 /target/
 /target/
 /${project.build.directory}/
+/springboot-wxcloudrun.iml
