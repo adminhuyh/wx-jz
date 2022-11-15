@@ -1,5 +1,5 @@
 server:
-  port: 80
+  port: 8080
 
 #    url: jdbc:mysql://sh-cynosdbmysql-grp-a7shddcm.sql.tencentcdb.com:23974/springboot_demo
 #    username: root
