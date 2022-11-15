@@ -7,7 +7,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://10.29.110.164:3306:springboot_demon
+    url: jdbc:mysql://10.29.110.164:3306/springboot_demon
     username: root
     password: 890qweASD
   mvc:
